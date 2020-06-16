@@ -4,7 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/common/common.iml" filepath="$PROJECT_DIR$/common/common.iml" />
       <module fileurl="file://$PROJECT_DIR$/eureka-8761/eureka-8761.iml" filepath="$PROJECT_DIR$/eureka-8761/eureka-8761.iml" />
-      <module fileurl="file://$PROJECT_DIR$/purchase-9091/purchase-9091.iml" filepath="$PROJECT_DIR$/purchase-9091/purchase-9091.iml" />
+      <module fileurl="file://$PROJECT_DIR$/purchase-9098/purchase-9098.iml" filepath="$PROJECT_DIR$/purchase-9098/purchase-9098.iml" />
       <module fileurl="file://$PROJECT_DIR$/springcloud_term.iml" filepath="$PROJECT_DIR$/springcloud_term.iml" />
       <module fileurl="file://$PROJECT_DIR$/zuul-8080/zuul-8080.iml" filepath="$PROJECT_DIR$/zuul-8080/zuul-8080.iml" />
       <module fileurl="file://$PROJECT_DIR$/zuul-8080/zuul-service8080.iml" filepath="$PROJECT_DIR$/zuul-8080/zuul-service8080.iml" />

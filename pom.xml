@@ -12,7 +12,7 @@
         <module>common</module>
         <module>eureka-8761</module>
         <module>zuul-8080</module>
-        <module>purchase-9091</module>
+        <module>purchase-9098</module>
     </modules>
     <parent>
         <artifactId>spring-boot-parent</artifactId>
