@@ -1,7 +1,7 @@
-package com.inventory.controller;
+package cn.yqd.controller;
 
+import cn.yqd.dao.PurchaseListGoodsDao;
 import com.inventory.entity.PurchaseList;
-import com.inventory.service.PurchaseListGoodsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -13,7 +13,12 @@ import java.util.List;
 @RestController
 public class PurchaseController {
     @Autowired
-    private PurchaseListGoodsService purchaseListGoodsService;
+    private PurchaseListGoodsDao purchaseListGoodsDao;
+
+    @GetMapping("/test")
+    public String test() {
+        return "test...";
+    }
 
     /**
      * 根据进货单号查询进货单信息
@@ -22,7 +27,7 @@ public class PurchaseController {
      */
     @GetMapping("/getPurByNum/{purchaseNumber}")
     public List<PurchaseList> getPurByNum(@PathVariable String purchaseNumber) {
-        return purchaseListGoodsService.list(purchaseNumber);
+        return purchaseListGoodsDao.getPurchaselist(purchaseNumber);
     }
 
     /**
@@ -37,7 +42,7 @@ public class PurchaseController {
         //设置日期
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         purchaseList.setPurchaseDate(sdf.format(new Date()));
-        return purchaseListGoodsService.savePurchaseList(purchaseList);
+        return purchaseListGoodsDao.savePurchaseList(purchaseList);
     }
 
     /**
@@ -47,7 +52,7 @@ public class PurchaseController {
      */
     @GetMapping("/deletePurchaseListById/{purchaseListId}")
     public Integer deletePurchaseListById(@PathVariable Integer purchaseListId) {
-        return purchaseListGoodsService.deletePurchaseListById(purchaseListId);
+        return purchaseListGoodsDao.deletePurchaseListById(purchaseListId);
     }
 
     /**
@@ -57,6 +62,6 @@ public class PurchaseController {
      */
     @GetMapping("/updateState/{purchaseListId}")
     public Integer updateState(@PathVariable Integer purchaseListId) {
-        return purchaseListGoodsService.updateState(purchaseListId);
+        return purchaseListGoodsDao.updateState(purchaseListId);
     }
 }

@@ -3,7 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.inventory.dao.PurchaseListGoodsDao">
+<mapper namespace="cn.yqd.dao.PurchaseListGoodsDao">
 
     <resultMap id="BaseResultMap" type="com.inventory.entity.PurchaseList">
         <result column="purchase_list_id" property="purchaseListId" jdbcType="INTEGER" />

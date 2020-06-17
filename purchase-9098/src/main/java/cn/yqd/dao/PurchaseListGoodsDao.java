@@ -1,4 +1,4 @@
-package com.inventory.dao;
+package cn.yqd.dao;
 
 
 import com.inventory.entity.PurchaseList;
@@ -13,7 +13,6 @@ import java.util.List;
  * @date 2019/8/2 9:33
  * @description
  */
-
 public interface PurchaseListGoodsDao {
 
     Integer savePurchaseList(PurchaseList purchaseList);
@@ -25,6 +24,7 @@ public interface PurchaseListGoodsDao {
 //                                       @Param("state") Integer state,
 //                                       @Param("sTime") String sTime,
 //                                       @Param("eTime") String eTime);
+
     List<PurchaseList> getPurchaselist(@Param("purchaseNumber") String purchaseNumber);
 
     List<PurchaseListGoods> getPurchaseListGoodsByPurchaseListId(Integer purchaseListId);
