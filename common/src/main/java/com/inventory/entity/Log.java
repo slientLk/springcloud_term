@@ -3,12 +3,18 @@ package com.inventory.entity;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Date;
 
 @Data
 @NoArgsConstructor
+@Entity
+@Table(name = "t_log")
 public class Log {
 
+  @Id
   private Integer logId;
   private String logType;
   private String content;

@@ -1,11 +1,16 @@
 package com.zyt.controller;
 
 
-import com.inventory.entity.User;
-import com.zyt.service.UserService;
+import com.inventory.entity.Log;
+import com.inventory.entity.Menu;
+import com.inventory.entity.Role;
+import com.inventory.entity.RoleMenu;
+import com.zyt.service.LogService;
+import com.zyt.service.MenuService;
+import com.zyt.service.RoleMenuService;
+import com.zyt.service.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -18,35 +23,40 @@ import java.util.List;
 public class InitialController {
 
     @Autowired
-    UserService userService;
+    MenuService menuService;
 
-    @RequestMapping("/getMenu")
-    public List<String> getMenu(Integer UserId){
-        User user = userService.getByUserId(UserId);
+    @Autowired
+    RoleService roleService;
+
+    @Autowired
+    RoleMenuService roleMenuService;
+
+    @Autowired
+    LogService logService;
+
+    @RequestMapping("/getBasicMenu")
+    public List<String> getMenu(){
         List<String> menuList;
-        System.out.println("====="+user.getRemarks());
-        if (user.getRemarks().equals("管理员")){
-            menuList = new ArrayList<String>();
-            menuList.add("登陆");
-            menuList.add("后台管理");
-            menuList.add("注销");
-        } else if (user.getRemarks().equals("销售经理")){
-            menuList = new ArrayList<String>();
-            menuList.add("登陆");
-            menuList.add("仓库管理");
-            menuList.add("销售管理");
-            menuList.add("采购管理");
-            menuList.add("注销");
-        }else {
-            menuList = new ArrayList<String>();
-            menuList.add("后台管理");
-            menuList.add("注销");
-        }
+        menuList = new ArrayList<String>();
+        menuList.add("登陆");
+        menuList.add("后台管理");
+        menuList.add("注销");
         return menuList;
     }
 
-    @GetMapping("/test")
-    public String test(){
-        return "test";
+    @RequestMapping("/getMenuByRemarks")
+    public List<Menu> getMenuList(String remarks){
+        Role role = roleService.getRoleByRemarks(remarks);
+        List<RoleMenu> roleMenuList = roleMenuService.getRoleMenu(role.getRoleId());
+        List<Menu> menus = new ArrayList<>();
+        for (RoleMenu roleMenu : roleMenuList){
+            menus.add(menuService.getMenu(roleMenu.getMenuId()));
+        }
+        return menus;
+    }
+
+    @RequestMapping("/getLogs")
+    public List<Log> getLogs(int page,int size){
+        return logService.findAllLogs(page,size);
     }
 }
