@@ -2,15 +2,17 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="common" />
         <module name="zuul-8080" />
+        <module name="common" />
         <module name="eureka-8761" />
         <module name="purchase-9098" />
         <module name="initial-9091" />
+        <module name="sales-9096" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -19,6 +21,7 @@
       <module name="initial" target="1.8" />
       <module name="initial-9091" target="1.8" />
       <module name="purchase-9098" target="1.8" />
+      <module name="sales-9096" target="1.8" />
       <module name="springcloud_term" target="1.8" />
       <module name="zuul-8080" target="1.8" />
       <module name="zuul-service8080" target="1.8" />
