@@ -5,10 +5,7 @@ import com.inventory.entity.Log;
 import com.inventory.entity.Menu;
 import com.inventory.entity.Role;
 import com.inventory.entity.RoleMenu;
-import com.zyt.service.LogService;
-import com.zyt.service.MenuService;
-import com.zyt.service.RoleMenuService;
-import com.zyt.service.RoleService;
+import com.zyt.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,16 +20,7 @@ import java.util.List;
 public class InitialController {
 
     @Autowired
-    MenuService menuService;
-
-    @Autowired
-    RoleService roleService;
-
-    @Autowired
-    RoleMenuService roleMenuService;
-
-    @Autowired
-    LogService logService;
+    InitialService initialService;
 
     @RequestMapping("/getBasicMenu")
     public List<String> getMenu(){
@@ -46,17 +34,22 @@ public class InitialController {
 
     @RequestMapping("/getMenuByRemarks")
     public List<Menu> getMenuList(String remarks){
-        Role role = roleService.getRoleByRemarks(remarks);
-        List<RoleMenu> roleMenuList = roleMenuService.getRoleMenu(role.getRoleId());
+        Role role = initialService.getRoleByRemarks(remarks);
+        List<RoleMenu> roleMenuList = initialService.getRoleMenu(role.getRoleId());
         List<Menu> menus = new ArrayList<>();
         for (RoleMenu roleMenu : roleMenuList){
-            menus.add(menuService.getMenu(roleMenu.getMenuId()));
+            menus.add(initialService.getMenu(roleMenu.getMenuId()));
         }
         return menus;
     }
 
     @RequestMapping("/getLogs")
     public List<Log> getLogs(int page,int size){
-        return logService.findAllLogs(page,size);
+        return initialService.findAllLogs(page,size);
+    }
+
+    @RequestMapping("/getDamageCount")
+    public Integer getDamageCount(){
+        return initialService.getDamage();
     }
 }
