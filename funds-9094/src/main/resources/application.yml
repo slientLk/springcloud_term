@@ -1,5 +1,5 @@
 server:
-  port: 9096
+  port: 9094
 eureka:
   client:
     service-url:
@@ -8,7 +8,7 @@ eureka:
     prefer-ip-address: true
 spring:
   application:
-    name: sales
+    name: funds
   datasource:
     url: jdbc:mysql://127.0.0.1:3306/jxc?characterEncoding=UTF-8
     username: root
@@ -19,5 +19,5 @@ spring:
       naming:
         physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
 info:
-  app.name: sales
-  author: sxh
+  app.name: funds
+  author: ljw

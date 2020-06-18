@@ -7,6 +7,6 @@ public interface SaleDataResult {
     double getSaleTotal();
     double getPurchasingTotal();
     default String getSaleDataResult(){
-        return getDATE().concat(";").concat(String.valueOf(getSaleTotal()).concat(";").concat(String.valueOf(getPurchasingTotal())).concat("     "));
+        return "          \n";
     }
 }

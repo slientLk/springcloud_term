@@ -15,6 +15,7 @@
         <module>purchase-9098</module>
         <module>initial-9091</module>
         <module>sales-9096</module>
+        <module>funds-9094</module>
     </modules>
     <parent>
         <artifactId>spring-boot-parent</artifactId>
