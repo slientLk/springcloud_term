@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
 
-@FeignClient(value="crship",fallback = FeignCrService.class)
+@FeignClient(value="crship",fallback = FeignCr.class)
 public interface FeignCrService {
 
 
