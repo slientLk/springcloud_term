@@ -17,3 +17,6 @@ zuul:
 #  prefix: /api
   routes:
     purchase: /purchase/**
+    initial: /initial/**
+    sales: /sales/**
+    funds: /funds/**
