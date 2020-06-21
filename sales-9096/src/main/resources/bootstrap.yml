@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: sales-9096
+  profiles:
+    active: 9096
+  cloud:
+    config:
+      uri: http://localhost:8888

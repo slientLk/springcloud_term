@@ -4,7 +4,6 @@ import com.inventory.entity.SaleListGoods;
 import com.ljw.impl.PurchaseListGoodsResult;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-
 import javax.transaction.Transactional;
 import java.util.List;
 

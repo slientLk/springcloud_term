@@ -16,6 +16,9 @@
         <module>initial-9091</module>
         <module>sales-9096</module>
         <module>funds-9094</module>
+        <module>customerRelationship-9011</module>
+        <module>configServer</module>
+        <module>feign</module>
     </modules>
     <parent>
         <artifactId>spring-boot-parent</artifactId>

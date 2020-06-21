@@ -1,6 +1,5 @@
 package com.sxh.service;
 
-import com.inventory.entity.SaleData;
 import com.inventory.entity.SaleList;
 import com.inventory.entity.SaleListGoods;
 import com.sxh.dao.SaleListDao;
@@ -8,8 +7,6 @@ import com.sxh.dao.SaleListGoodsDao;
 import com.sxh.impl.SaleDataResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.Date;
 import java.util.List;
 
 @Service

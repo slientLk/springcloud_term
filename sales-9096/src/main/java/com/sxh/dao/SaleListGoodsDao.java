@@ -1,6 +1,5 @@
 package com.sxh.dao;
 
-import com.inventory.entity.SaleData;
 import com.inventory.entity.SaleListGoods;
 import com.sxh.impl.SaleDataResult;
 import org.springframework.data.jpa.repository.JpaRepository;

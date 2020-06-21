@@ -1,0 +1,17 @@
+server:
+  port: 9090
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+spring:
+  application:
+    name: feign
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/jxc?characterEncoding=UTF-8
+    username: root
+    password:
+    driver-class-name: com.mysql.jdbc.Driver
+feign:
+  hystrix:
+    enabled: true
