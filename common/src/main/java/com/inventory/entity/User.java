@@ -5,11 +5,12 @@ import lombok.Data;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.io.Serializable;
 
 @Data
 @Entity
 @Table(name = "t_user")
-public class User {
+public class User implements Serializable {
 
   @Id
   private Integer userId;

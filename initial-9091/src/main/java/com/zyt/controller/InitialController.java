@@ -1,12 +1,11 @@
 package com.zyt.controller;
 
 
-import com.inventory.entity.Log;
-import com.inventory.entity.Menu;
-import com.inventory.entity.Role;
-import com.inventory.entity.RoleMenu;
+import com.inventory.entity.*;
 import com.zyt.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -20,14 +19,17 @@ public class InitialController {
     @Autowired
     InitialService initialService;
 
-    @RequestMapping("/getBasicMenu")
-    public List<String> getMenu(){
-        List<String> menuList;
-        menuList = new ArrayList<String>();
-        menuList.add("登陆");
-        menuList.add("后台管理");
-        menuList.add("注销");
-        return menuList;
+    @Autowired
+    RedisTemplate redisTemplate;
+
+    @RequestMapping("/login")
+    public User login(String username,String password){
+        User user = initialService.getByUserNameAndPassword(username,password);
+        if (user !=null)
+            redisTemplate.opsForValue().set(user.getUserId(),user);
+        User user1 = (User) redisTemplate.opsForValue().get(user.getUserId());
+        System.out.println("------------"+user1.getTrueName());
+        return user;
     }
 
     @RequestMapping("/getMenuByRemarks")

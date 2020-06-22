@@ -35,6 +35,10 @@
             <artifactId>spring-cloud-starter-hystrix-dashboard</artifactId>
             <version>1.4.4.RELEASE</version>
         </dependency>
+        <dependency>
+            <groupId>com.netflix.hystrix</groupId>
+            <artifactId>hystrix-javanica</artifactId>
+        </dependency>
     </dependencies>
 
 </project>

@@ -1,9 +1,6 @@
 package com.zyt.service;
 
-import com.inventory.entity.Log;
-import com.inventory.entity.Menu;
-import com.inventory.entity.Role;
-import com.inventory.entity.RoleMenu;
+import com.inventory.entity.*;
 import com.zyt.dao.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -32,6 +29,9 @@ public class InitialService {
     @Autowired
     RoleDAO roleDAO;
 
+    @Autowired
+    UserDAO userDAO;
+
     public Integer getDamage(){
         return damageListGoodsDAO.getDamageCount();
     }
@@ -54,5 +54,9 @@ public class InitialService {
 
     public Role getRoleByRemarks(String remark){
         return roleDAO.findByRemarks(remark);
+    }
+
+    public User getByUserNameAndPassword(String userName,String password){
+        return userDAO.findByUserNameAndPassword(userName,password);
     }
 }

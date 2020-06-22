@@ -2,6 +2,7 @@ package com.feign.service;
 
 import com.inventory.entity.Log;
 import com.inventory.entity.Menu;
+import com.inventory.entity.User;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -10,10 +11,8 @@ import java.util.List;
 @Component
 public class InitialError implements InitialFeign{
     @Override
-    public List<String> getBasicMenu() {
-        List<String> error = new ArrayList<>();
-        error.add("getBasicMenu is down!");
-        return error;
+    public User login(String username, String password) {
+        return null;
     }
 
     @Override
