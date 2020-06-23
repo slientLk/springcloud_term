@@ -17,7 +17,11 @@ public class InitialError implements InitialFeign{
 
     @Override
     public List<Menu> getMenuByRemarks(String remarks){
-        return null;
+        List<Menu> result = new ArrayList<>();
+        Menu menu = new Menu();
+        menu.setMenuName("no result");
+        result.add(menu);
+        return result;
     }
 
     @Override

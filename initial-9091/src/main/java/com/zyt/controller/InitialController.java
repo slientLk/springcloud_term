@@ -28,7 +28,7 @@ public class InitialController {
         if (user !=null)
             redisTemplate.opsForValue().set(user.getUserId(),user);
         User user1 = (User) redisTemplate.opsForValue().get(user.getUserId());
-        System.out.println("------------"+user1.getTrueName());
+        System.out.println("登陆用户的TrueName："+user1.getTrueName());
         return user;
     }
 
