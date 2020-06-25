@@ -15,12 +15,9 @@ info:
 zuul:
   ignored-services: "*"
 #  prefix: /api
+  routes:
+    purchase: /purchase/**
+    feign: /api/**
   ribbon-isolation-strategy: semaphore
   semaphore:
     max-semaphores: 20
-  routes:
-    purchase: /purchase/**
-    initialSupport: /initialSupport/**
-    initial: /initial/**
-    funds: /funds/**
-    sales: /sales/**
