@@ -17,6 +17,7 @@ zuul:
 #  prefix: /api
   routes:
     purchase: /purchase/**
+    analysis: /analysis/**
     feign: /api/**
   ribbon-isolation-strategy: semaphore
   semaphore:
