@@ -18,7 +18,7 @@
         <module>funds-9094</module>
         <module>customerRelationship-9011</module>
         <module>configServer</module>
-        <module>feign</module>
+        <module>analysis-9097</module>
         <module>initial-support</module>
     </modules>
     <parent>

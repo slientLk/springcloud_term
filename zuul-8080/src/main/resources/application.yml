@@ -14,10 +14,17 @@ info:
   author: yqd
 zuul:
   ignored-services: "*"
-#  prefix: /api
-  routes:
-    purchase: /purchase/**
-    feign: /api/**
+  #  prefix: /api
   ribbon-isolation-strategy: semaphore
   semaphore:
     max-semaphores: 20
+  routes:
+    purchase: /purchase/**
+    analysis: /analysis/**
+    initialSupport: /initialSupport/**
+    initial: /initial/**
+    funds: /funds/**
+    sales: /sales/**
+  host:
+    socket-timeout-millis: 60000
+    connect-timeout-millis: 15000

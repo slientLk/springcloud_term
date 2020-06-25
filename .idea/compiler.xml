@@ -7,19 +7,21 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="customerRelationship" />
-        <module name="funds-9094" />
+        <module name="eureka-8761" />
         <module name="zuul-8080" />
         <module name="common" />
         <module name="configServer" />
-        <module name="eureka-8761" />
+        <module name="customerRelationship" />
+        <module name="funds-9094" />
         <module name="purchase-9098" />
         <module name="initial-support" />
         <module name="initial-9091" />
         <module name="sales-9096" />
+        <module name="analysis-9097" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="analysis-9097" target="1.8" />
       <module name="common" target="1.8" />
       <module name="configServer" target="1.8" />
       <module name="customerRelationship" target="7" />

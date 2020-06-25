@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/analysis-9097/analysis-9097.iml" filepath="$PROJECT_DIR$/analysis-9097/analysis-9097.iml" />
       <module fileurl="file://$PROJECT_DIR$/common/common.iml" filepath="$PROJECT_DIR$/common/common.iml" />
       <module fileurl="file://$PROJECT_DIR$/configServer/configServer.iml" filepath="$PROJECT_DIR$/configServer/configServer.iml" />
       <module fileurl="file://$PROJECT_DIR$/customerRelationship-9011/customerRelationship.iml" filepath="$PROJECT_DIR$/customerRelationship-9011/customerRelationship.iml" />
