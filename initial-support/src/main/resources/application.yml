@@ -1,12 +1,12 @@
 server:
-  port: 9090
+  port: 9191
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka
 spring:
   application:
-    name: feign
+    name: initialSupport
   datasource:
     url: jdbc:mysql://127.0.0.1:3306/jxc?characterEncoding=UTF-8
     username: root

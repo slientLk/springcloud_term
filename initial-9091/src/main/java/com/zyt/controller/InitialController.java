@@ -1,8 +1,11 @@
 package com.zyt.controller;
 
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.inventory.entity.*;
 import com.zyt.service.*;
+import org.codehaus.jettison.json.JSONString;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
@@ -32,15 +35,9 @@ public class InitialController {
         return user;
     }
 
-    @RequestMapping("/getMenuByRemarks")
-    public List<Menu> getMenuList(String remarks){
-        Role role = initialService.getRoleByRemarks(remarks);
-        List<RoleMenu> roleMenuList = initialService.getRoleMenu(role.getRoleId());
-        List<Menu> menus = new ArrayList<>();
-        for (RoleMenu roleMenu : roleMenuList){
-            menus.add(initialService.getMenu(roleMenu.getMenuId()));
-        }
-        return menus;
+    @RequestMapping("/getRoleByRemarks")
+    public String getMenuList(String remarks){
+        return JSONObject.toJSONString(initialService.getRoleByRemarks(remarks));
     }
 
     @RequestMapping("/getLogs")

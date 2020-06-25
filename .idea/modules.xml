@@ -6,9 +6,9 @@
       <module fileurl="file://$PROJECT_DIR$/configServer/configServer.iml" filepath="$PROJECT_DIR$/configServer/configServer.iml" />
       <module fileurl="file://$PROJECT_DIR$/customerRelationship-9011/customerRelationship.iml" filepath="$PROJECT_DIR$/customerRelationship-9011/customerRelationship.iml" />
       <module fileurl="file://$PROJECT_DIR$/eureka-8761/eureka-8761.iml" filepath="$PROJECT_DIR$/eureka-8761/eureka-8761.iml" />
-      <module fileurl="file://$PROJECT_DIR$/feign/feign.iml" filepath="$PROJECT_DIR$/feign/feign.iml" />
       <module fileurl="file://$PROJECT_DIR$/funds-9094/funds-9094.iml" filepath="$PROJECT_DIR$/funds-9094/funds-9094.iml" />
       <module fileurl="file://$PROJECT_DIR$/initial-9091/initial-9091.iml" filepath="$PROJECT_DIR$/initial-9091/initial-9091.iml" />
+      <module fileurl="file://$PROJECT_DIR$/initial-support/initial-support.iml" filepath="$PROJECT_DIR$/initial-support/initial-support.iml" />
       <module fileurl="file://$PROJECT_DIR$/purchase-9098/purchase-9098.iml" filepath="$PROJECT_DIR$/purchase-9098/purchase-9098.iml" />
       <module fileurl="file://$PROJECT_DIR$/sales-9096/sales-9096.iml" filepath="$PROJECT_DIR$/sales-9096/sales-9096.iml" />
       <module fileurl="file://$PROJECT_DIR$/springcloud_term.iml" filepath="$PROJECT_DIR$/springcloud_term.iml" />

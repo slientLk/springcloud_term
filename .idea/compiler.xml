@@ -14,9 +14,9 @@
         <module name="configServer" />
         <module name="eureka-8761" />
         <module name="purchase-9098" />
+        <module name="initial-support" />
         <module name="initial-9091" />
         <module name="sales-9096" />
-        <module name="feign" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -28,6 +28,7 @@
       <module name="funds-9094" target="1.8" />
       <module name="initial" target="1.8" />
       <module name="initial-9091" target="1.8" />
+      <module name="initial-support" target="1.8" />
       <module name="purchase-9098" target="1.8" />
       <module name="sales-9096" target="1.8" />
       <module name="springcloud_term" target="1.8" />

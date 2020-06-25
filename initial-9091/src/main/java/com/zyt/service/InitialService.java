@@ -21,12 +21,6 @@ public class InitialService {
     LogDAO logDAO;
 
     @Autowired
-    MenuDAO menuDAO;
-
-    @Autowired
-    RoleMenuDAO roleMenuDAO;
-
-    @Autowired
     RoleDAO roleDAO;
 
     @Autowired
@@ -41,15 +35,6 @@ public class InitialService {
         Pageable pageable= PageRequest.of(page,size);
         Page<Log> logs = logDAO.findAll(pageable);
         return logs.getContent();
-    }
-
-    @Modifying(clearAutomatically = true, flushAutomatically = true)
-    public Menu getMenu(Integer pid){
-        return menuDAO.findByMenuId(pid);
-    }
-
-    public List<RoleMenu> getRoleMenu(Integer roleId){
-        return roleMenuDAO.findByRoleId(roleId);
     }
 
     public Role getRoleByRemarks(String remark){

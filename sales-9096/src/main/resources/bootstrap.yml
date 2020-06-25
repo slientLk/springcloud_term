@@ -1,6 +1,6 @@
 spring:
   application:
-    name: sales-9096
+    name: sales
   profiles:
     active: 9096
   cloud:

@@ -19,6 +19,7 @@
         <module>customerRelationship-9011</module>
         <module>configServer</module>
         <module>feign</module>
+        <module>initial-support</module>
     </modules>
     <parent>
         <artifactId>spring-boot-parent</artifactId>
