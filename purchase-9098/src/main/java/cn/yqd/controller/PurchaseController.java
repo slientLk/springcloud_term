@@ -1,19 +1,20 @@
 package cn.yqd.controller;
 
-import cn.yqd.dao.PurchaseListGoodsDao;
+import cn.yqd.client.AnalysisService;
+import cn.yqd.service.PurchaseListGoodsService;
 import com.inventory.entity.PurchaseList;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
+import java.util.Map;
 
 @RestController
 public class PurchaseController {
+
     @Autowired
-    private PurchaseListGoodsDao purchaseListGoodsDao;
+    private PurchaseListGoodsService purchaseListGoodsService;
 
     @GetMapping("/test")
     public String test() {
@@ -21,28 +22,24 @@ public class PurchaseController {
     }
 
     /**
-     * 根据进货单号查询进货单信息
-     * @param purchaseNumber
-     * @return
-     */
-    @GetMapping("/getPurByNum/{purchaseNumber}")
-    public List<PurchaseList> getPurByNum(@PathVariable String purchaseNumber) {
-        return purchaseListGoodsDao.getPurchaselist(purchaseNumber);
-    }
-
-    /**
      * 添加进货单信息
      * @param purchaseList
      * @return
      */
-    @PostMapping(value = "/savePurchaseList",produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "/save",produces = MediaType.APPLICATION_JSON_VALUE)
     public Integer savePurchaseList(@RequestBody PurchaseList purchaseList) {
-        //设置订单状态(初始值为0)
-        purchaseList.setState(0);
-        //设置日期
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        purchaseList.setPurchaseDate(sdf.format(new Date()));
-        return purchaseListGoodsDao.savePurchaseList(purchaseList);
+
+        return purchaseListGoodsService.save(purchaseList);
+    }
+
+    /**
+     * 根据进货单id查询进货单商品信息
+     * @param purchaseListId
+     * @return
+     */
+    @GetMapping("/getGoodListById/{purchaseListId}")
+    public Map<String, Object> getGoodListById(@PathVariable Integer purchaseListId) {
+        return purchaseListGoodsService.goodsList(purchaseListId);
     }
 
     /**
@@ -50,18 +47,33 @@ public class PurchaseController {
      * @param purchaseListId
      * @return
      */
-    @GetMapping("/deletePurchaseListById/{purchaseListId}")
-    public Integer deletePurchaseListById(@PathVariable Integer purchaseListId) {
-        return purchaseListGoodsDao.deletePurchaseListById(purchaseListId);
+    @GetMapping("/delete/{purchaseListId}")
+    public String deletePurchaseListById(@PathVariable Integer purchaseListId) {
+        return purchaseListGoodsService.delete(purchaseListId);
     }
 
     /**
-     * 将订单状态设置为已处理（设置state为1）
-     * @param purchaseListId
+     * 进货商品统计
+     * @param goodsTypeId 商品类别ID
+     * @param codeOrName 编号或商品名称
      * @return
      */
-    @GetMapping("/updateState/{purchaseListId}")
-    public Integer updateState(@PathVariable Integer purchaseListId) {
-        return purchaseListGoodsDao.updateState(purchaseListId);
+    @RequestMapping("/count/{goodsTypeId}/{codeOrName}")
+    public String count(@PathVariable Integer goodsTypeId, @PathVariable String codeOrName) {
+        return purchaseListGoodsService.count(goodsTypeId, codeOrName);
     }
+
+    @Autowired
+    private AnalysisService analysisService;
+
+    @GetMapping("/analysis/getMon/{stime}/{etime}")
+    public String AnalysisMonth(@PathVariable String stime, @PathVariable String etime) {
+        return analysisService.getSaleDataByMonth(stime, etime);
+    }
+
+    @GetMapping("/analysis")
+    public String Analysis() {
+        return analysisService.test();
+    }
+
 }

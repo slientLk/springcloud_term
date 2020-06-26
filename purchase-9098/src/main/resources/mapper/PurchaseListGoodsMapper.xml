@@ -80,18 +80,6 @@
             <if test="purchaseNumber != null and purchaseNumber != ''">
                 AND t_purchase_list.purchase_number LIKE CONCAT('%', #{purchaseNumber} ,'%')
             </if>
-<!--            <if test="supplierId != null">-->
-<!--                AND t_purchase_list.supplier_id = #{supplierId}-->
-<!--            </if>-->
-<!--            <if test="state != null">-->
-<!--                AND t_purchase_list.state = #{state}-->
-<!--            </if>-->
-<!--            <if test="sTime != null and sTime != ''">-->
-<!--                AND t_purchase_list.purchase_date &gt;= #{sTime}-->
-<!--            </if>-->
-<!--            <if test="eTime != null and eTime != ''">-->
-<!--                AND t_purchase_list.purchase_date &lt;= #{eTime}-->
-<!--            </if>-->
         </where>
     </select>
 
